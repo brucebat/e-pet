@@ -1,0 +1,213 @@
+#e-pet-lion {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  z-index: 9999;
+  cursor: default;
+}
+
+#e-pet-lion:hover {
+  cursor: pointer;
+}
+
+#e-pet-lion.dragging {
+  cursor: grabbing;
+  opacity: 0.8;
+}
+
+#e-pet-lion .lion-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#e-pet-lion .lion-body {
+  width: 100%;
+  height: 100%;
+  background: #FFE600;
+  border-radius: 45%;
+  position: relative;
+  overflow: visible;
+  animation: breathe 3s infinite ease-in-out;
+  border: 3px solid #000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* 皮卡丘的耳朵 */
+#e-pet-lion .lion-body:before,
+#e-pet-lion .lion-body:after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  background: #FFE600;
+  top: -15px;
+  border-radius: 60% 60% 0 0;
+  border: 3px solid #000;
+  z-index: -1;
+}
+
+#e-pet-lion .lion-body:before {
+  left: 15px;
+  transform: rotate(-30deg);
+}
+
+#e-pet-lion .lion-body:after {
+  right: 15px;
+  transform: rotate(30deg);
+}
+
+/* 耳朵尖端 */
+#e-pet-lion .lion-body:before,
+#e-pet-lion .lion-body:after {
+  border-top: 20px solid #000;
+}
+
+#e-pet-lion .lion-face {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  background: #FFE600;
+  border-radius: 50%;
+}
+
+/* 皮卡丘的脸颊 */
+#e-pet-lion .lion-face:before,
+#e-pet-lion .lion-face:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #FF0000;
+  border-radius: 50%;
+  top: 50%;
+}
+
+#e-pet-lion .lion-face:before {
+  left: 0;
+}
+
+#e-pet-lion .lion-face:after {
+  right: 0;
+}
+
+/* 添加浮动动画效果 */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(-50%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px) translateX(-50%);
+    opacity: 0;
+  }
+}
+
+/* 呼吸动画效果 */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+#e-pet-lion .lion-eye {
+  position: absolute;
+  width: 10px;
+  height: 12px;
+  background: #000;
+  border-radius: 50%;
+  top: 35%;
+  animation: blink 4s infinite;
+}
+
+#e-pet-lion .lion-eye.left {
+  left: 35%;
+}
+
+#e-pet-lion .lion-eye.right {
+  right: 35%;
+}
+
+#e-pet-lion .lion-mouth {
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  background: #000;
+  bottom: 22%;
+  left: 35%;
+  border-radius: 0 0 15px 15px;
+  border: 2px solid #000;
+}
+
+/* 皮卡丘的尾巴 */
+#e-pet-lion .lion-container:after {
+  content: '';
+  position: absolute;
+  width: 45px;
+  height: 20px;
+  background: #FFE600;
+  right: -25px;
+  top: 45%;
+  transform: rotate(35deg);
+  border: 3px solid #000;
+  border-radius: 10px;
+  z-index: -1;
+  animation: tailWag 2s infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+#e-pet-lion.happy .lion-mouth {
+  height: 10px;
+  border: 2px solid #000;
+  border-top: 0;
+  background: transparent;
+}
+
+#e-pet-lion.sleeping .lion-eye {
+  height: 2px;
+  margin-top: 3px;
+}
+
+.animation-bounce {
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes blink {
+  0%, 96%, 100% {
+    transform: scaleY(1);
+  }
+  98% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes tailWag {
+  0%, 100% {
+    transform: rotate(35deg);
+  }
+  50% {
+    transform: rotate(25deg);
+  }
+}

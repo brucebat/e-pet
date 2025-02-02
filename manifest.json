@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "E-Pet",
+  "version": "1.0.0",
+  "description": "一个可爱的电子宠物，陪伴你浏览网页",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "32": "images/icon-32.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "css": ["styles/content.css"],
+    "js": ["scripts/content.js"]
+  }]
+}
